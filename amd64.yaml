@@ -1,0 +1,61 @@
+name: orza
+arch: amd64          # amd64 | arm64
+platform: linux
+version: 1.0.0
+release: 1
+section: web
+priority: optional
+maintainer: you example <you@example.com>
+description: Web browser
+vendor: orza
+homepage: https://example.com
+license: MPL-2.0
+
+depends:
+  - (libcurl.so()(64bit) or libcurl-gnutls.so.4()(64bit) or libcurl-nss.so.4()(64bit) or libcurl.so.4()(64bit))
+  - (libgtk-3.so.0()(64bit) or libgtk-4.so.1()(64bit))
+  - /usr/sbin/update-alternatives
+  - ca-certificates
+  - liberation-fonts
+  - libX11.so.6()(64bit)
+  - libXcomposite.so.1()(64bit)
+  - libXdamage.so.1()(64bit)
+  - libXext.so.6()(64bit)
+  - libXfixes.so.3()(64bit)
+  - libXrandr.so.2()(64bit)
+  - libasound.so.2()(64bit)
+  - libatk-1.0.so.0()(64bit)
+  - libatk-bridge-2.0.so.0()(64bit)
+  - libatspi.so.0()(64bit)
+  - libc.so.6()(64bit)
+  - libcairo.so.2()(64bit)
+  - libcups.so.2()(64bit)
+  - libdbus-1.so.3()(64bit)
+  - libdl.so.2()(64bit)
+  - libexpat.so.1()(64bit)
+  - libgbm.so.1()(64bit)
+  - libgcc_s.so.1()(64bit)
+  - libgio-2.0.so.0()(64bit)
+  - libglib-2.0.so.0()(64bit)
+  - libgobject-2.0.so.0()(64bit)
+  - libm.so.6()(64bit)
+  - libnspr4.so()(64bit)
+  - libnss3.so()(64bit)
+  - libnssutil3.so()(64bit)
+  - libpango-1.0.so.0()(64bit)
+  - libpthread.so.0()(64bit)
+  - libsmime3.so()(64bit)
+  - libudev.so.1()(64bit)
+  - libvulkan.so.1()(64bit)
+  - libxcb.so.1()(64bit)
+  - libxkbcommon.so.0()(64bit)
+  - wget
+  - xdg-utils
+
+
+contents:
+  # draft
+    
+scripts:
+  postinstall: src/scripts/postinstall.sh
+  preremove: src/scripts/preremove.sh

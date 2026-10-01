@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Orza launcher. Wraps the untouched browser binary at ./brave.
+
+# Let the wrapped binary know it was run through the wrapper.
+export CHROME_WRAPPER="$(readlink -f "$0")"
+HERE="$(dirname "$CHROME_WRAPPER")"
+
+# Some systems have xdg-mime bugs without a mimeapps.list.
+xdg_app_dir="${XDG_DATA_HOME:-$HOME/.local/share/applications}"
+mkdir -p "$xdg_app_dir"
+[ -f "$xdg_app_dir/mimeapps.list" ] || touch "$xdg_app_dir/mimeapps.list"
+
+export CHROME_VERSION_EXTRA="stable"
+
+# Stop GNOME's bug-buddy from intercepting crashes (any non-empty value works).
+export GNOME_DISABLE_CRASH_DIALOG=SET_BY_ORZA
+
+# Sanitize std{in,out,err}; they are shared with untrusted child processes.
+exec < /dev/null
+exec > >(exec cat)
+exec 2> >(exec cat >&2)
+
+# Default profile dir comes first so a user-supplied --user-data-dir overrides it.
+exec -a "$0" "$HERE/brave" \
+  --user-data-dir="${XDG_CONFIG_HOME:-$HOME/.config}/orza" \
+  "$@"

@@ -1,0 +1,26 @@
+<!-- Copyright 2026 Orza -->
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>orza.desktop</id>
+  <update_contact>support@orza.example</update_contact>
+  <metadata_license>MPL-2.0</metadata_license>
+  <project_license>MPL-2.0</project_license>
+  <name>Orza Browser</name>
+  <summary>A secure and minimal browser for distraction free work at GNU/Linux</summary>
+  <description>
+    <p>
+    Enjoy the best class integration with major LSM . Unlike all the other browsers that just set unconfined/_t
+    </p>
+  </description>
+  <url type="homepage">https://orza.com/</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://www.orza.com/images.png</image>
+      <caption/>
+    </screenshot>
+  </screenshots>
+  <translation/>
+  <developer_name>Orza</developer_name>
+  <url type="bugtracker">https://github.com/hayamahamed/orza/issues/</url>
+  <url type="help">https://support.orza.com/</url>
+</component>
